@@ -1,0 +1,131 @@
+/* === TASKBAR & START MENU === */
+.taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(to bottom, #0a246a, #a3c6f3);
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #fff;
+    z-index: 1000;
+}
+
+.start-button {
+    height: 24px;
+    margin: 0 4px;
+    padding: 0 8px;
+    background: linear-gradient(to bottom, #30c208, #0a7c00);
+    border: 1px solid #000;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.4);
+}
+
+.start-button:hover {
+    background: linear-gradient(to bottom, #6bd94f, #0a7c00);
+}
+
+.start-button.active {
+    background: linear-gradient(to bottom, #0a7c00, #30c208);
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.taskbar-items {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex: 1;
+}
+
+.taskbar-item {
+    height: 22px;
+    padding: 0 8px;
+    background: linear-gradient(to bottom, #e0e0e0, #b0b0b0);
+    border: 1px solid #7a7a7a;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    margin: 0 2px;
+    cursor: pointer;
+    font-size: 12px;
+    min-width: 120px;
+    box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.8);
+}
+
+.taskbar-item.active {
+    background: linear-gradient(to bottom, #d0d0d0, #a0a0a0);
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.system-tray {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 10px;
+    background: linear-gradient(to bottom, #0a246a, #a3c6f3);
+    border-left: 1px solid #7a7a7a;
+}
+
+.clock {
+    color: white;
+    font-size: 12px;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.start-menu {
+    position: absolute;
+    bottom: 30px;
+    left: 4px;
+    width: 300px;
+    background: linear-gradient(to bottom, #0a246a, #a3c6f3);
+    border: 1px solid #000;
+    border-radius: 3px 3px 0 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1001;
+}
+
+.start-menu-header {
+    background: linear-gradient(to right, #05207a, #a3c6f3);
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.start-menu-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    gap: 10px;
+}
+
+.start-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.start-menu-item:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.start-menu-footer {
+    background: #0a246a;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 12px;
+}

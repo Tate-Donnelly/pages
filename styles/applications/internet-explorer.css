@@ -1,0 +1,92 @@
+/* === INTERNET EXPLORER APPLICATION === */
+.ie-url-bar {
+    flex: 1;
+    margin: 0 4px;
+    padding: 2px 5px;
+    border: 1px solid #7a7a7a;
+    background: white;
+    font-size: 12px;
+}
+
+/* Framework Documentation (IE Content) */
+.framework-doc {
+    padding: 20px;
+    background: white;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.framework-doc h1 {
+    color: #0a246a;
+    border-bottom: 2px solid #0a246a;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.component-card {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.component-card h3 {
+    color: #0a246a;
+    margin-bottom: 10px;
+}
+
+.component-props {
+    background: #eef4ff;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: monospace;
+    margin: 10px 0;
+}
+
+.code-block {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 4px;
+    font-family: monospace;
+    overflow-x: auto;
+    margin: 10px 0;
+}
+
+.highlight {
+    background: #fffbdd;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Internet Explorer Content Styles */
+.ie-content {
+    padding: 15px;
+    background: white;
+    height: 100%;
+    overflow: auto;
+}
+
+.ie-content h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #0a246a;
+}
+
+.ie-content p, .ie-content ul {
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.ie-content a {
+    color: #00f;
+    text-decoration: underline;
+}
+
+.ie-content a:hover {
+    text-decoration: none;
+}

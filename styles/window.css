@@ -1,0 +1,60 @@
+/* === WINDOW FRAMES === */
+.window {
+    position: absolute;
+    background: #ece9d8;
+    border: 1px solid #000;
+    border-top: 18px solid #0a246a;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.window-header {
+    position: absolute;
+    top: -18px;
+    left: 0;
+    right: 0;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: move;
+}
+
+.window-controls {
+    position: absolute;
+    top: -16px;
+    right: 2px;
+    display: flex;
+}
+
+.window-btn {
+    width: 16px;
+    height: 14px;
+    margin-left: 2px;
+    background: #c0c0c0;
+    border: 1px solid #7a7a7a;
+    font-size: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.window-btn:hover {
+    background: #e0e0e0;
+}
+
+.window-content {
+    flex: 1;
+    padding: 0;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}

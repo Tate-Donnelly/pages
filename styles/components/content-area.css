@@ -1,0 +1,7 @@
+/* ContentArea Component */
+.content-area {
+    flex: 1;
+    padding: 15px;
+    overflow: auto;
+    background: white;
+}
