@@ -7,30 +7,30 @@ function createInternetExplorerWindow(page = 'projects') {
     const toolbar = document.createElement('div');
     toolbar.className = 'ie-toolbar';
     toolbar.innerHTML = `
-        <button class="ie-toolbar-button" onclick="window.history.back()">
-            <img src="https://www.iconshock.com/image/PlasticXP/General/fast_forward" class="ie-toolbar-icon" alt="Back">
-            <span>Back</span>
+        <button class="ie-toolbar-button" onclick="openWindow('internet-explorer')">
+            <span>Projects</span>
         </button>
 
-        <button class="ie-toolbar-button" onclick="window.history.forward()">
-            <img src="https://www.iconshock.com/image/PlasticXP/General/fast_forward" class="ie-toolbar-icon" alt="Forward">
-            <span>Forward</span>
+        <button class="ie-toolbar-button" onclick="openWindow('internet-explorer', 'about')">
+            <span>About</span>
         </button>
 
-        <button class="ie-toolbar-button" onclick="document.getElementById('ie-content-area').innerHTML = ''">
-            <img src="https://www.iconshock.com/image/PlasticXP/General/fast_forward" class="ie-toolbar-icon" alt="Stop">
-            <span>Stop</span>
+        <button class="ie-toolbar-button" onclick="openWindow('internet-explorer', 'resume')">
+            <span>Resume</span>
         </button>
 
-        <button class="ie-toolbar-button" onclick="loadIEContent('projects')">
-            <img src="https://www.iconshock.com/image/PlasticXP/General/fast_forward" class="ie-toolbar-icon" alt="Refresh">
-            <span>Refresh</span>
+        <button class="ie-toolbar-button" onclick="window.open('https://www.linkedin.com/in/tatedonnelly/','_blank')">
+            <span>LinkedIn</span>
+        </button>
+        
+        <button class="ie-toolbar-button" onclick="window.open('https://github.com/Tate-Donnelly','_blank')">
+            <span>GitHub</span>
         </button>
 
         <input type="text" class="ie-url-bar" value="http://www.tatedonnelly.com/projects" id="ie-url-input">
 
         <button class="ie-toolbar-button ie-go-button" onclick="navigateToUrl()">
-            <img src="https://www.iconshock.com/image/PlasticXP/General/fast_forward" class="ie-toolbar-icon" alt="Go">
+            <img src="https://www.iconshock.com/image/PlasticXP/General/fast_forward" class="ie-toolbar-icon" alt="Search">
             <span>Go</span>
         </button>
     `;
@@ -290,12 +290,23 @@ function getPageFromUrl() {
     else if (url.includes('give') || url.includes('grow')) return  'give-as-we-grow';
     else if (url.includes('double') || url.includes('crossed')) return  'double-crossed';
     else if (url.includes('gotta') || url.includes('bot')) return  'gotta-go-bot';
+    else if (url.includes('git')) return  'git';
+    else if (url.includes('linkedin')) return 'linkedin';
     return 'projects';
 }
 
 function navigateToUrl() {
     // Extract page from URL
     let url = getPageFromUrl();
+
+    if (url === 'git') {
+        window.open('https://github.com/Tate-Donnelly','_blank')
+        return;
+    }
+    if (url === 'linkedin') {
+        window.open('https://www.linkedin.com/in/tatedonnelly/','_blank')
+        return;
+    }
 
     // Show classic IE "working" animation
     const statusBar = document.querySelector('.ie-status-bar');
