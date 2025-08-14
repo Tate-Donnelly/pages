@@ -11,14 +11,59 @@ function createMyComputerWindow() {
     ]);
     window.querySelector('.window-content').appendChild(menuBar);
     
-    const toolbar = createToolbar([
-        { icon: 'back-icon.svg', label: 'Back' },
-        { icon: 'forward-icon.svg', label: 'Forward' },
-        { icon: 'up-icon.svg', label: 'Up' },
-        { icon: 'search-icon.svg', label: 'Search' },
-        { icon: 'folders-icon.svg', label: 'Folders' }
-    ]);
+    const toolbar = document.createElement('div');
+    toolbar.className = 'mc-toolbar';
+    toolbar.innerHTML = `
+        <div class="mc-toolbar-button">
+            <img src="https://i.redd.it/whistler-xp-icons-redesigned-see-captions-v0-0u05lpyyffnc1.png?width=1024&format=png&auto=webp&s=f94c316dfac734bc3b74ec3432d3a511784719db" 
+                 class="mc-toolbar-icon" alt="Back">
+            <span>Back</span>
+        </div>
+        <div class="mc-toolbar-button">
+            <img src="https://www.iconshock.com/image/PlasticXP/General/fast_forward" 
+                 class="mc-toolbar-icon" alt="Forward">
+            <span>Forward</span>
+        </div>
+        <div class="mc-toolbar-button">
+            <img src="https://i.imgur.com/RjMRqmK.png" 
+                 class="mc-toolbar-icon" alt="Search">
+            <span>Search</span>
+        </div>
+        <div class="mc-toolbar-button">
+            <img src="https://winaero.com/blog/wp-content/uploads/2016/05/Windows-XP.png" 
+                 class="mc-toolbar-icon" alt="Folders">
+            <span>Folders</span>
+        </div>
+    `;
     window.querySelector('.window-content').appendChild(toolbar);
+    
+    // Add CSS to ensure consistent icon sizing
+    const style = document.createElement('style');
+    style.textContent = `
+        .mc-toolbar {
+            display: flex;
+            padding: 4px;
+            background: #f0f0f0;
+            border-bottom: 1px solid #d3d3d3;
+        }
+        .mc-toolbar-button {
+            display: flex;
+            align-items: center;
+            padding: 2px 8px;
+            margin-right: 4px;
+            cursor: pointer;
+        }
+        .mc-toolbar-button:hover {
+            background-color: #e0e0e0;
+        }
+        .mc-toolbar-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            margin-right: 4px;
+        }
+    `;
+    document.head.appendChild(style);
     
     const addressBar = document.createElement('div');
     addressBar.className = 'mc-address-bar';

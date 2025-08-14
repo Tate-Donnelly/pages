@@ -5,9 +5,10 @@
     left: 0;
     width: 100%;
     height: 30px;
-    background: #0a246a;
+    background: linear-gradient(to bottom, #0a246a, #a3c6f3);
     display: flex;
     align-items: center;
+    border-top: 1px solid #fff;
     z-index: 1000;
 }
 

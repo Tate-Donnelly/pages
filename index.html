@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tate Donnelly</title>
+    <title>Windows XP Component Framework</title>
     
     <!-- Global Styles -->
     <link rel="stylesheet" href="styles/base.css">
@@ -30,16 +30,16 @@
     <div class="desktop">
         <!-- ===== DESKTOP ICONS ===== -->
         <div class="desktop-icons">
-            <div class="desktop-icon" onclick="openWindow('my-computer')">
-                <div class="icon-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICA8cGF0aCBmaWxsPSIjMDA4MEZGIiBkPSJNMTYgMkwyIDZ2MTZoMTB2NGg4di00aDEwVjZ6TTQgMTZWN2wxMi00IDEyIDR2OUg0em0xNiA4di0yaC04djJ6bTEwLTZoLTh2NmgtOHYtNkg0di01aDI0djV6Ii8+Cjwvc3ZnPg==');"></div>
+            <div class="desktop-icon my-computer-icon" onclick="openWindow('my-computer')">
+                <div class="icon-image"></div>
                 <span>My Computer</span>
             </div>
-            <div class="desktop-icon" onclick="openWindow('notepad')">
-                <div class="icon-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICA8cGF0aCBmaWxsPSIjRkZGRjAwIiBkPSJNMjggNEg0djI0aDI0VjR6bS0yIDIySDZWNmgydjE4aDE4djJ6TTE0IDEwaDEydjJoLTEydi0yem0wIDRoMTJ2MmgtMTJ2LTJ6bTAgNGgxMnYyaC0xMnYtMnoiLz4KPC9zdmc+');"></div>
+            <div class="desktop-icon notepad-icon" onclick="openWindow('notepad')">
+                <div class="icon-image"></div>
                 <span>Notepad</span>
             </div>
-            <div class="desktop-icon" onclick="openWindow('internet-explorer')">
-                <div class="icon-image" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICA8cGF0aCBmaWxsPSIjMDA4MEZGIiBkPSJNMTYgMkM4LjI3MyAyIDIgOC4yNzMgMiAxNnM2LjI3MyAxNCAxNCAxNCAxNC02LjI3MyAxNC0xNFMyMy43MjcgMiAxNiAyeiIvPgogIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0xOC45OTIgMTUuOTk0aDMuODA5bC0zLjgwOS0xMC45ODV2Ni45ODRjMCAuNTUyLjQ0OCAxIDEgMWgzLjYxOWwtMy42MTkgMTAuMDA2di02Ljk4NGMwLS41NTItLjQ0OC0xLTEtMWgtMy42MTl6Ii8+Cjwvc3ZnPg==');"></div>
+            <div class="desktop-icon ie-icon" onclick="openWindow('internet-explorer')">
+                <div class="icon-image"></div>
                 <span>Internet Explorer</span>
             </div>
         </div>
@@ -79,7 +79,20 @@
             </div>
         </div>
         <!-- ===== END START MENU ===== -->
-
+        
+        <!-- ===== WELCOME SCREEN ===== -->
+        <div class="welcome-screen" id="welcome-screen">
+            <div class="welcome-title">Windows XP Component Framework</div>
+            <div class="welcome-subtitle">Build applications with reusable UI components</div>
+            <div class="user-selection">
+                <div class="user-avatar" onclick="login()"></div>
+                <div class="user-name" onclick="login()">Developer</div>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loading-progress"></div>
+            </div>
+        </div>
+        <!-- ===== END WELCOME SCREEN ===== -->
     </div>
     <!-- ===== END DESKTOP CONTAINER ===== -->
     

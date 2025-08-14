@@ -1,7 +1,22 @@
 // ===== MAIN APPLICATION LOGIC =====
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 function init() {
     updateClock();
     setInterval(updateClock, 60000);
+    
+    // Handle window maximize on resize to mobile
+    window.addEventListener('resize', () => {
+        if (isMobile()) {
+            Object.keys(windows).forEach(windowId => {
+                if (!windows[windowId].maximized) {
+                    maximizeWindow(windowId);
+                }
+            });
+        }
+    });
     
     setTimeout(() => {
         document.getElementById('loading-progress').style.width = '100%';
@@ -55,14 +70,21 @@ function openWindow(type) {
             break;
         case 'internet-explorer':
             windowElement = createInternetExplorerWindow();
-            title = 'Component Framework - Microsoft Internet Explorer';
+            title = 'IE - Tate Donnelly Portfolio';
             break;
     }
     
     const windowId = `window-${Date.now()}`;
     windowElement.id = windowId;
-    windowElement.style.top = '100px';
-    windowElement.style.left = '150px';
+    
+    // Mobile-optimized positioning
+    if (isMobile()) {
+        windowElement.style.top = '0';
+        windowElement.style.left = '0';
+    } else {
+        windowElement.style.top = '100px';
+        windowElement.style.left = '150px';
+    }
     
     document.querySelector('.desktop').appendChild(windowElement);
     
@@ -79,9 +101,20 @@ function openWindow(type) {
         element: windowElement,
         minimized: false,
         maximized: false,
-        originalPosition: { top: '100px', left: '150px' },
-        originalSize: { width: windowElement.style.width, height: windowElement.style.height }
+        originalPosition: { 
+            top: isMobile() ? '0' : '100px', 
+            left: isMobile() ? '0' : '150px' 
+        },
+        originalSize: { 
+            width: windowElement.style.width, 
+            height: windowElement.style.height 
+        }
     };
+    
+    // Auto-maximize on mobile
+    if (isMobile()) {
+        maximizeWindow(windowId);
+    }
 }
 
 // Close start menu when clicking outside

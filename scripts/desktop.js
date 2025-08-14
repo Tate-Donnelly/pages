@@ -104,10 +104,20 @@ function maximizeWindow(windowId) {
                 height: window.element.style.height
             };
             
-            window.element.style.top = '0';
-            window.element.style.left = '0';
-            window.element.style.width = 'calc(100% - 4px)';
-            window.element.style.height = 'calc(100% - 34px)';
+            // Mobile-optimized maximize
+            if (isMobile()) {
+                window.element.style.top = '0';
+                window.element.style.left = '0';
+                window.element.style.width = '100%';
+                window.element.style.height = '100%';
+            } else {
+                // Desktop maximize
+                window.element.style.top = '0';
+                window.element.style.left = '0';
+                window.element.style.width = 'calc(100% - 4px)';
+                window.element.style.height = 'calc(100% - 34px)';
+            }
+            
             window.maximized = true;
         }
     }

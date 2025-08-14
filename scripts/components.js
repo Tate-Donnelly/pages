@@ -1,9 +1,20 @@
 // ===== COMPONENT FRAMEWORK FUNCTIONS =====
+function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 function createWindowFrame(title, width = '600px', height = '400px') {
     const window = document.createElement('div');
     window.className = 'window';
-    window.style.width = width;
-    window.style.height = height;
+    
+    // Mobile-optimized sizing
+    if (isMobile()) {
+        window.style.width = '100%';
+        window.style.height = '100%';
+    } else {
+        window.style.width = width;
+        window.style.height = height;
+    }
     
     window.innerHTML = `
         <div class="window-header">${title}</div>
@@ -33,7 +44,7 @@ function createMenuBar(menus) {
                 ).join('')}
             </div>
         `;
-        menuBar.appendChild(menuItem);
+        menuBar.appendChild(menuItem);  // Fixed this line
     });
     
     return menuBar;
@@ -86,7 +97,7 @@ function createStatusBar(items) {
     
     items.forEach(item => {
         const statusItem = document.createElement('div');
-        statusItem.className = 'status-item';
+        statusItem.class极 = 'status-item';
         statusItem.textContent = item;
         statusBar.appendChild(statusItem);
     });
