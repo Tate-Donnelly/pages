@@ -97,7 +97,7 @@ function createStatusBar(items) {
     
     items.forEach(item => {
         const statusItem = document.createElement('div');
-        statusItem.class极 = 'status-item';
+        statusItem.class = 'status-item';
         statusItem.textContent = item;
         statusBar.appendChild(statusItem);
     });

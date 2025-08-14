@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windows XP Component Framework</title>
+    <title>Tate Donnelly</title>
     
     <!-- Global Styles -->
     <link rel="stylesheet" href="styles/base.css">
@@ -21,8 +21,6 @@
     <link rel="stylesheet" href="styles/components/icon-view.css">
     
     <!-- Application Styles -->
-    <link rel="stylesheet" href="styles/applications/my-computer.css">
-    <link rel="stylesheet" href="styles/applications/notepad.css">
     <link rel="stylesheet" href="styles/applications/internet-explorer.css">
 </head>
 <body>
@@ -30,17 +28,13 @@
     <div class="desktop">
         <!-- ===== DESKTOP ICONS ===== -->
         <div class="desktop-icons">
-            <div class="desktop-icon my-computer-icon" onclick="openWindow('my-computer')">
-                <div class="icon-image"></div>
-                <span>My Computer</span>
-            </div>
-            <div class="desktop-icon notepad-icon" onclick="openWindow('notepad')">
-                <div class="icon-image"></div>
-                <span>Notepad</span>
-            </div>
-            <div class="desktop-icon ie-icon" onclick="openWindow('internet-explorer')">
+            <div class="desktop-icon ie-icon" onclick="openWindow('internet-explorer', 'projects')">
                 <div class="icon-image"></div>
                 <span>Internet Explorer</span>
+            </div>
+            <div class="desktop-icon sincerely-robin" onclick="openWindow('internet-explorer','sincerely-robin')">
+                <div class="icon-image"></div>
+                <span>Notepad</span>
             </div>
         </div>
         <!-- ===== END DESKTOP ICONS ===== -->
@@ -63,12 +57,6 @@
         <div class="start-menu" id="start-menu">
             <div class="start-menu-header">Windows XP</div>
             <div class="start-menu-items">
-                <div class="start-menu-item" onclick="openWindow('my-computer')">
-                    <span>My Computer</span>
-                </div>
-                <div class="start-menu-item" onclick="openWindow('notepad')">
-                    <span>Notepad</span>
-                </div>
                 <div class="start-menu-item" onclick="openWindow('internet-explorer')">
                     <span>Internet Explorer</span>
                 </div>
@@ -79,13 +67,12 @@
             </div>
         </div>
         <!-- ===== END START MENU ===== -->
-        
+
     </div>
     <!-- ===== END DESKTOP CONTAINER ===== -->
     
     <script src="scripts/components.js"></script>
-    <script src="scripts/applications/myComputer.js"></script>
-    <script src="scripts/applications/notepad.js"></script>
+    <script src="scripts/applications/project-pages.js"></script>
     <script src="scripts/applications/internetExplorer.js"></script>
     <script src="scripts/desktop.js"></script>
     <script src="scripts/main.js"></script>

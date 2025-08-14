@@ -1,7 +1,9 @@
 // === INTERNET EXPLORER APPLICATION ===
-function createInternetExplorerWindow() {
+let ieWindowExists = false;
+
+function createInternetExplorerWindow(page = 'projects') {
     const ieWindow = createWindowFrame('IE - Tate Donnelly Portfolio', '800px', '600px');
-    
+
     // Create toolbar with XP styling
     const toolbar = document.createElement('div');
     toolbar.className = 'ie-toolbar';
@@ -53,7 +55,7 @@ function createInternetExplorerWindow() {
     
     // Load content immediately after all elements are created
     setTimeout(() => {
-        loadProjectsPage();
+        loadIEContent(page);
         statusBar.innerHTML = `
             <span>Done</span>
             <div style="flex: 1;"></div>
@@ -64,31 +66,51 @@ function createInternetExplorerWindow() {
     return ieWindow;
 }
 
-function loadIEContent(page = 'projects') {
+function loadIEContent(page) {
     const contentArea = document.getElementById('ie-content-area');
     if (!contentArea) return;
+    console.log(page);
 
     // Update URL input to reflect current page
     const urlInput = document.getElementById('ie-url-input');
     urlInput.value = `http://www.tatedonnelly.com/${page}`;
 
-    if (page === 'about') {
-        loadAboutPage();
-    } else if (page === 'resume') {
-        loadResumePage();
-    } else {
-        loadProjectsPage();
+    switch (page) {
+        case 'about':
+            contentArea.innerHTML = loadAboutPage();
+            break;
+        case 'resume':
+            contentArea.innerHTML = loadResumePage();
+            break;
+        case 'projects':
+            contentArea.innerHTML = loadProjects();
+            break;
+        case 'sincerely-robin':
+            contentArea.innerHTML = loadSincerelyRobin();
+            break;
+        case 'mythic-realms':
+            contentArea.innerHTML = loadMythicRealms();
+            break;
+        case 'give-as-we-grow':
+            contentArea.innerHTML = loadGiveAsWeGrow();
+            break;
+        case 'hellfire-hair':
+            contentArea.innerHTML = loadHellfireHair();
+            break;
+        case 'gotta-go-bot':
+            contentArea.innerHTML = loadGottaGoBot();
+            break;
+        case 'double-crossed':
+            contentArea.innerHTML = loadDoubleCrossed();
+            break;
     }
 }
 
 function loadAboutPage() {
-    const contentArea = document.getElementById('ie-content-area');
-    if (!contentArea) return;
-    
-    contentArea.innerHTML = `
+    return `
         <div class="ie-classic-page">
             <div class="xp-navbar">About Tate Donnelly</div>
-            <ul class="xp-nav-links" style="padding-left: 0px;">
+            <ul class="xp-nav-links" style="padding-left: 0;">
                 <li><a href="#" onclick="loadIEContent('projects')">Projects</a></li>
                 <li class="active"><a href="#" onclick="loadIEContent('about')">About</a></li>
                 <li><a href="#" onclick="loadIEContent('resume')">Resume</a></li>
@@ -156,10 +178,7 @@ function loadAboutPage() {
 }
 
 function loadResumePage() {
-    const contentArea = document.getElementById('ie-content-area');
-    if (!contentArea) return;
-    
-    contentArea.innerHTML = `
+    return `
         <div class="ie-classic-page">
             <div class="xp-navbar">Tate Donnelly - Resume</div>
             <ul class="xp-nav-links" style="padding-left: 0px;">
@@ -261,151 +280,24 @@ function loadResumePage() {
     `;
 }
 
-function loadProjectsPage() {
-    const portfolioData = {
-        projects: [
-            {
-                title: "Give As We Grow",
-                href: "../GiveAsWeGrow.html",
-                videoUrl: "https://www.youtube.com/embed/n3CZYVWYZyI?si=HpMj8OojYjR2TYTF",
-                publisher: "GivingTuesday, Inc",
-                role: "Software Engineer",
-                tools: "Unity, C#, Trello",
-                description: "A digital platform educating the next generation about giving and philanthropic action.",
-                contributions: "Frontend Development, Server Communication"
-            },
-            {
-                title: "Mythic Realms",
-                href: "../mythic-realms.html",
-                videoUrl: "https://www.youtube.com/embed/iTAuscirfAA?si=wNWen-fQmY8dZZw6",
-                publisher: "Petricore Games",
-                role: "Software Engineer",
-                tools: "Unity, C#, OculusVR",
-                description: "An Action RPG where Mixed Reality transforms your home into a fantasy world to battle monsters and gather resources for your growing Virtual Reality Kingdom.",
-                contributions: "Combat System, Audio System, Mixed Reality System"
-            },
-            {
-                title: "Hellfire Hair",
-                href: "../hellfire-hair.html",
-                videoUrl: "https://www.youtube.com/embed/pgkDYAey3tw",
-                publisher: "MassDigi",
-                role: "Lead Programmer and Producer",
-                tools: "Unity, C#, PlasticSCM",
-                description: "Hellfire Hair is a roguelike card battler where you play as a hairdresser from hell, battling demonic hair days.",
-                contributions: "Combat System, Progression System, Deck System, Audio System, Overworld System, UI, Analytics Collection"
-            },
-            {
-                title: "Bed and Beakfast",
-                href: "../bed-and-beakfast.html",
-                videoUrl: "https://www.youtube.com/embed/A1oioVqJcY4?si=zI8SXha8Kqr3gkPb",
-                role: "Lead Writer & Programmer",
-                tools: "C#, Unity, JIRA",
-                description: "Bed and BEAKfast is a management, cooking, and narrative game set in a world of birds! Cook meals for your guests and forge lasting relationships with your community!",
-                contributions: "Dialogue System, Cooking System, Event Scripting, NPC Logic, Narrative Design"
-            },
-            {
-                title: "Gotta Go-Bot",
-                href: "../gotta-go-bot.html",
-                imageUrl: "https://via.placeholder.com/400x225?text=Gotta+Go-Bot",
-                role: "Programmer",
-                tools: "Unreal, Blueprints",
-                description: "Gotta Go-bot is a 3D, puzzle platformer, where you play as a tiny robot exploring inside the remains of an abandoned giant robot.",
-                contributions: "Health System, Save System, UI System"
-            },
-            {
-                title: "Double Crossed",
-                href: "../double-crossed.html",
-                videoUrl: "https://www.youtube.com/embed/G6GnujtUMUg",
-                role: "Programmer & Designer",
-                tools: "C++, Github, Custom ASCII Game Engine",
-                description: "A stealth-based action game where you play as a secret agent trying to sneak into secure locations, gather intel, and avoid being caught.",
-                contributions: "Level system, Combat system, Health system, Level Design, Trailer"
-            }
-        ],
-        footer: "Website made by Tate Donnelly"
-    };
-
-    const contentArea = document.getElementById('ie-content-area');
-    if (!contentArea) return;
-    
-    contentArea.innerHTML = `
-        <div class="ie-classic-page">
-            <div class="xp-navbar">Tate Donnelly - Projects</div>
-            <ul class="xp-nav-links" style="padding-left: 0px;">
-                <li class="active"><a href="#" onclick="loadIEContent('projects')">Projects</a></li>
-                <li><a href="#" onclick="loadIEContent('about')">About</a></li>
-                <li><a href="#" onclick="loadIEContent('resume')">Resume</a></li>
-                <li><a href="https://github.com/Tate-Donnelly">GitHub↗</a></li>
-                <li><a href="https://www.linkedin.com/in/tatedonnelly/">LinkedIn↗</a></li>
-            </ul>
-            
-            <h1>My Projects</h1>
-            <p>Here are some of my recent game development projects:</p>
-            
-            ${portfolioData.projects.map(project => `
-                <div class="xp-card">
-                    <div class="xp-card-title">${project.title}</div>
-                    <div class="xp-card-content">
-                        ${project.videoUrl ? `
-                            <div style="text-align: center; margin: 10px 0;">
-                                <iframe width="400" height="225" src="${project.videoUrl}" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                        ` : project.imageUrl ? `
-                            <div style="text-align: center; margin: 10px 0;">
-                                <img src="${project.imageUrl}" alt="${project.title}" width="400" border="1">
-                            </div>
-                        ` : ''}
-                        
-                        <table class="xp-table">
-                            ${project.publisher ? `
-                                <tr>
-                                    <td width="120"><b>Publisher:</b></td>
-                                    <td>${project.publisher}</td>
-                                </tr>
-                            ` : ''}
-                            <tr>
-                                <td><b>Role:</b></td>
-                                <td>${project.role}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Tools:</b></td>
-                                <td>${project.tools}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Description:</b></td>
-                                <td>${project.description}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Contributions:</b></td>
-                                <td>${project.contributions}</td>
-                            </tr>
-                        </table>
-                        
-                        <div style="margin-top: 10px;">
-                            <a href="${project.href}" class="xp-button">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            `).join('')}
-            
-            <div style="text-align: center; margin-top: 20px; font-size: 10px; color: #666;">
-                <p>${portfolioData.footer}</p>
-                <p>Best viewed with Internet Explorer 6.0 at 800x600 resolution</p>
-                <p>Last updated: ${new Date().toLocaleDateString()}</p>
-            </div>
-        </div>
-    `;
+function getPageFromUrl() {
+    const urlInput = document.getElementById('ie-url-input');
+    const url = urlInput.value;
+    if (url.includes('about')) return 'about';
+    else if (url.includes('resume')) return 'resume';
+    else if (url.includes('hellfire') || url.includes('hair')) return 'hellfire-hair';
+    else if (url.includes('sincerely') || url.includes('robin')) return 'sincerely-robin';
+    else if (url.includes('mythic') || url.includes('realms') || url.includes('MR') || url.includes('VR')) return  'mythic-realms';
+    else if (url.includes('give') || url.includes('grow')) return  'give-as-we-grow';
+    else if (url.includes('double') || url.includes('crossed')) return  'double-crossed';
+    else if (url.includes('gotta') || url.includes('bot')) return  'gotta-go-bot';
+    return 'projects';
 }
 
 function navigateToUrl() {
-    const urlInput = document.getElementById('ie-url-input');
-    const url = urlInput.value;
-    
     // Extract page from URL
-    let page = 'projects';
-    if (url.includes('about')) page = 'about';
-    else if (url.includes('resume')) page = 'resume';
-    
+    let url = getPageFromUrl();
+
     // Show classic IE "working" animation
     const statusBar = document.querySelector('.ie-status-bar');
     if (statusBar) {
@@ -418,7 +310,7 @@ function navigateToUrl() {
     
     // Simulate page load
     setTimeout(() => {
-        loadIEContent(page);
+        loadIEContent(url);
         if (statusBar) {
             statusBar.innerHTML = `
                 <span>Done</span>
@@ -430,60 +322,9 @@ function navigateToUrl() {
 }
 
 // ===== COMPONENT FRAMEWORK FUNCTIONS =====
-function isMobile() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
-
-function createWindowFrame(title, width = '600px', height = '400px') {
-    const window = document.createElement('div');
-    window.className = 'window';
-    
-    // Mobile-optimized sizing
-    if (isMobile()) {
-        window.style.width = '100%';
-        window.style.height = '100%';
-    } else {
-        window.style.width = width;
-        window.style.height = height;
-    }
-    
-    window.innerHTML = `
-        <div class="window-header">${title}</div>
-        <div class="window-controls">
-            <div class="window-btn">_</div>
-            <div class="window-btn">□</div>
-            <div class="window-btn">×</div>
-        </div>
-        <div class="window-content"></div>
-    `;
-    
-    return window;
-}
-
-function createMenuBar(menus) {
-    const menuBar = document.createElement('div');
-    menuBar.className = 'menu-bar';
-    
-    menus.forEach(menu => {
-        const menuItem = document.createElement('div');
-        menuItem.className = 'menu-item';
-        menuItem.innerHTML = `
-            ${menu.title}
-            <div class="menu-dropdown">
-                ${menu.options.map(option => 
-                    `<div class="menu-option">${option}</div>`
-                ).join('')}
-            </div>
-        `;
-        menuBar.appendChild(menuItem);
-    });
-    
-    return menuBar;
-}
-
 function createToolbar(buttons) {
     const toolbar = document.createElement('div');
-    toolbar.class极 = 'toolbar';
+    toolbar.class = 'toolbar';
     
     buttons.forEach(button => {
         const btn = document.createElement('div');
@@ -496,43 +337,5 @@ function createToolbar(buttons) {
     });
     
     return toolbar;
-}
-
-function createContentArea(content) {
-    const contentArea = document.createElement('div');
-    contentArea.className = 'content-area';
-    contentArea.innerHTML = content;
-    return contentArea;
-}
-
-function createIconView(items) {
-    const iconView = document.createElement('div');
-    iconView.className = 'icon-view';
-    
-    items.forEach(item => {
-        const iconItem = document.createElement('div');
-        iconItem.className = 'icon-item';
-        iconItem.innerHTML = `
-            <div class="icon-image-large" style="background-image: url('${item.icon}')"></div>
-            <div class="icon-label">${item.label}</div>
-        `;
-        iconView.appendChild(iconItem);
-    });
-    
-    return iconView;
-}
-
-function createStatusBar(items) {
-    const statusBar = document.createElement('div');
-    statusBar.className = 'status-bar';
-    
-    items.forEach(item => {
-        const statusItem = document.createElement('div');
-        statusItem.className = 'status-item';
-        statusItem.textContent = item;
-        statusBar.appendChild(statusItem);
-    });
-    
-    return statusBar;
 }
 // ===== END COMPONENT FRAMEWORK FUNCTIONS =====

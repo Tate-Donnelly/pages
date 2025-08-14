@@ -3,13 +3,23 @@ function isMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
+//Checks the screen width to see if it is too small for window dragging
+function isViewTooSmall(){
+    return window.width < 1040;
+}
+
+//Checks to see if resizing/dragging should be allowed
+function shouldAllowResizingAndDrag(){
+    return !isMobile() && !isViewTooSmall();
+}
+
 function init() {
     updateClock();
     setInterval(updateClock, 60000);
     
     // Handle window maximize on resize to mobile
     window.addEventListener('resize', () => {
-        if (isMobile()) {
+        if (!shouldAllowResizingAndDrag()) {
             Object.keys(windows).forEach(windowId => {
                 if (!windows[windowId].maximized) {
                     maximizeWindow(windowId);
@@ -17,16 +27,10 @@ function init() {
             });
         }
     });
-    
-    setTimeout(() => {
-        document.getElementById('loading-progress').style.width = '100%';
-        setTimeout(login, 3000);
-    }, 500);
+
+    openWindow('internet-explorer', 'projects');
 }
 
-function login() {
-    document.getElementById('welcome-screen').style.display = 'none';
-}
 
 function updateClock() {
     const now = new Date();
@@ -52,7 +56,14 @@ function toggleStartMenu() {
     }
 }
 
-function openWindow(type) {
+function openWindow(type, page) {
+    if(ieWindowExists){
+        loadIEContent(page);
+        return;
+    }
+
+    ieWindowExists=true;
+
     document.getElementById('start-menu').style.display = 'none';
     document.getElementById('start-button').classList.remove('active');
     
@@ -60,17 +71,9 @@ function openWindow(type) {
     let title;
     
     switch(type) {
-        case 'my-computer':
-            windowElement = createMyComputerWindow();
-            title = 'My Computer';
-            break;
-        case 'notepad':
-            windowElement = createNotepadWindow();
-            title = 'Untitled - Notepad';
-            break;
         case 'internet-explorer':
-            windowElement = createInternetExplorerWindow();
-            title = 'IE - Tate Donnelly Portfolio';
+            windowElement = createInternetExplorerWindow(page);
+            title = 'Tate Donnelly Portfolio';
             break;
     }
     
@@ -78,7 +81,7 @@ function openWindow(type) {
     windowElement.id = windowId;
     
     // Mobile-optimized positioning
-    if (isMobile()) {
+    if (!shouldAllowResizingAndDrag()) {
         windowElement.style.top = '0';
         windowElement.style.left = '0';
     } else {
@@ -92,8 +95,8 @@ function openWindow(type) {
     controls.children[0].onclick = () => minimizeWindow(windowId);
     controls.children[1].onclick = () => maximizeWindow(windowId);
     controls.children[2].onclick = () => closeWindow(windowId);
-    
-    makeDraggable(windowElement);
+
+    if (shouldAllowResizingAndDrag()) makeDraggable(windowElement);
     bringToFront(windowElement);
     addToTaskbar(windowId, title);
     
@@ -112,7 +115,7 @@ function openWindow(type) {
     };
     
     // Auto-maximize on mobile
-    if (isMobile()) {
+    if (!shouldAllowResizingAndDrag()) {
         maximizeWindow(windowId);
     }
 }

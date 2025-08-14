@@ -130,6 +130,7 @@ function closeWindow(windowId) {
         const taskbarItem = document.querySelector(`.taskbar-item[data-window="${windowId}"]`);
         if (taskbarItem) taskbarItem.remove();
         delete windows[windowId];
+        ieWindowExists=false;
     }
 }
 // ===== END DESKTOP MANAGEMENT =====
