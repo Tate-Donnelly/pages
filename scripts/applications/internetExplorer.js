@@ -1,6 +1,5 @@
 // === INTERNET EXPLORER APPLICATION ===
-let ieWindowExists = false;
-
+// Creates a browser window
 function createInternetExplorerWindow(page = 'projects') {
     const ieWindow = createWindowFrame('Tate Donnelly Portfolio - Game Programmer', '800px', '600px');
 
@@ -66,10 +65,10 @@ function createInternetExplorerWindow(page = 'projects') {
     return ieWindow;
 }
 
+//Loads the content of a browser's page
 function loadIEContent(page) {
     const contentArea = document.getElementById('ie-content-area');
     if (!contentArea) return;
-    console.log(page);
 
     // Update URL input to reflect current page
     const urlInput = document.getElementById('ie-url-input');
@@ -114,8 +113,8 @@ function loadAboutPage() {
                 <li><a href="#" onclick="loadIEContent('projects')">Projects</a></li>
                 <li class="active"><a href="#" onclick="loadIEContent('about')">About</a></li>
                 <li><a href="#" onclick="loadIEContent('resume')">Resume</a></li>
-                <li><a href="https://github.com/Tate-Donnelly">GitHub↗</a></li>
-                <li><a href="https://www.linkedin.com/in/tatedonnelly/">LinkedIn➚</a></li>
+                <li><a onclick="window.open('https://www.linkedin.com/in/tatedonnelly/','_blank')">GitHub↗</a></li>
+                <li><a onclick="window.open('https://github.com/Tate-Donnelly','_blank')">LinkedIn➚</a></li>
             </ul>
             
             <h1>About Me</h1>

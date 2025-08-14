@@ -2,6 +2,7 @@
 let zIndex = 100;
 let windows = {};
 let activeWindow = null;
+let ieWindowExists = false;
 
 function makeDraggable(element) {
     const header = element.querySelector('.window-header');
