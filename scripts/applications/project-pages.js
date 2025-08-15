@@ -1,9 +1,16 @@
+const MythicRealms = 'mythic-realms';
+const GiveAsWeGrow = 'give-as-we-grow';
+const HellfireHair = 'hellfire-hair';
+const SincerelyRobin = 'sincerely-robin';
+const GottaGoBot = 'gotta-go-bot';
+const DoubleCrossed = 'double-crossed';
+
 function loadProjects() {
     const portfolioData = {
         projects: [
             {
                 title: "Give As We Grow",
-                link: "loadIEContent('give-as-we-grow')",
+                link: "loadIEContent('"+GiveAsWeGrow+"')",
                 videoUrl: "https://www.youtube.com/embed/n3CZYVWYZyI?si=HpMj8OojYjR2TYTF",
                 publisher: "GivingTuesday, Inc",
                 role: "Software Engineer",
@@ -13,7 +20,7 @@ function loadProjects() {
             },
             {
                 title: "Mythic Realms",
-                link: "loadIEContent('mythic-realms')",
+                link: "loadIEContent('"+MythicRealms+"')",
                 videoUrl: "https://www.youtube.com/embed/iTAuscirfAA?si=wNWen-fQmY8dZZw6",
                 publisher: "Petricore Games",
                 role: "Software Engineer",
@@ -23,7 +30,7 @@ function loadProjects() {
             },
             {
                 title: "Hellfire Hair",
-                link: "loadIEContent('hellfire-hair')",
+                link: "loadIEContent('"+HellfireHair+"')",
                 videoUrl: "https://www.youtube.com/embed/pgkDYAey3tw",
                 publisher: "MassDigi",
                 role: "Lead Programmer and Producer",
@@ -33,7 +40,7 @@ function loadProjects() {
             },
             {
                 title: "Sincerely, Robin",
-                link: "loadIEContent('sincerely-robin')",
+                link: "loadIEContent('"+SincerelyRobin+"')",
                 videoUrl: "https://www.youtube.com/embed/A1oioVqJcY4?si=zI8SXha8Kqr3gkPb",
                 role: "Lead Writer & Programmer",
                 tools: "C#, Unity, JIRA",
@@ -42,7 +49,7 @@ function loadProjects() {
             },
             {
                 title: "Gotta Go-Bot",
-                link: "loadIEContent('gotta-go-bot')",
+                link: "loadIEContent('"+GottaGoBot+"')",
                 imageUrl: "https://via.placeholder.com/400x225?text=Gotta+Go-Bot",
                 role: "Programmer",
                 tools: "Unreal, Blueprints",
@@ -51,7 +58,7 @@ function loadProjects() {
             },
             {
                 title: "Double Crossed",
-                link: "loadIEContent('double-crossed')",
+                link: "loadIEContent('"+DoubleCrossed+"')",
                 videoUrl: "https://www.youtube.com/embed/G6GnujtUMUg",
                 role: "Programmer & Designer",
                 tools: "C++, Github, Custom ASCII Game Engine",

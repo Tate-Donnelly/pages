@@ -49,23 +49,35 @@
 }
 
 .icon-image {
-    width: 32px;
-    height: 32px;
+    width: 60px;
+    height: 60px;
     margin-bottom: 5px;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.desktop-icon[onclick*="my-computer"] .icon-image {
-    background-image: url('https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png');
+#mythic-realms {
+    background-image: url(../img/MythicRealms.png);
 }
 
-.desktop-icon[onclick*="notepad"] .icon-image {
-    background-image: url('https://win98icons.alexmeub.com/icons/png/notepad-4.png');
+.desktop-icon[onclick*="projects"] .icon-image {
+    background-image: url(../img/Internet-Explorer.png);
 }
 
-.desktop-icon[onclick*="internet-explorer"] .icon-image {
-    background-image: url('https://win98icons.alexmeub.com/icons/png/msie1-4.png');
+#sincerely-robin {
+    background-image: url(../img/SincerelyRobin.png);
+}
+
+#gotta-go-bot {
+    background-image: url(../img/GottaGoBot.png);
+}
+
+#hellfire-hair {
+    background-image: url(../img/HellfireHair.png);
+}
+
+#give-as-we-grow {
+    background-image: url(../img/GiveAsWeGrow.png);
 }
 
 /* === WELCOME SCREEN === */
