@@ -2,7 +2,7 @@
 let ieWindowExists = false;
 
 function createInternetExplorerWindow(page = 'projects') {
-    const ieWindow = createWindowFrame('Tate Donnelly Portfolio - Game Programmer', '800px', '600px');
+    const ieWindow = createWindowFrame('IE - Tate Donnelly Portfolio', '800px', '600px');
 
     // Create toolbar with XP styling
     const toolbar = document.createElement('div');
@@ -85,22 +85,22 @@ function loadIEContent(page) {
         case 'projects':
             contentArea.innerHTML = loadProjects();
             break;
-        case SincerelyRobin:
+        case 'sincerely-robin':
             contentArea.innerHTML = loadSincerelyRobin();
             break;
-        case MythicRealms:
+        case 'mythic-realms':
             contentArea.innerHTML = loadMythicRealms();
             break;
-        case GiveAsWeGrow:
+        case 'give-as-we-grow':
             contentArea.innerHTML = loadGiveAsWeGrow();
             break;
-        case HellfireHair:
+        case 'hellfire-hair':
             contentArea.innerHTML = loadHellfireHair();
             break;
-        case GottaGoBot:
+        case 'gotta-go-bot':
             contentArea.innerHTML = loadGottaGoBot();
             break;
-        case DoubleCrossed:
+        case 'double-crossed':
             contentArea.innerHTML = loadDoubleCrossed();
             break;
     }
