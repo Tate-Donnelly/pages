@@ -1,0 +1,98 @@
+.taskbar {
+  position: fixed; /* Changed from absolute to fixed */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: #0a246a;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #fff;
+  z-index: 10000; /* Higher z-index to stay above windows */
+}
+.start-button {
+  height: 24px;
+  margin: 0 4px;
+  padding: 0 8px;
+  background: linear-gradient(to bottom, #30c208, #0a7c00);
+  border: 1px solid #000;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.4);
+}
+.start-button:hover {
+  background: linear-gradient(to bottom, #6bd94f, #0a7c00);
+}
+.start-button.active {
+  background: linear-gradient(to bottom, #0a7c00, #30c208);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.task-buttons {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex: 1;
+  gap: 2px;
+}
+.task-button {
+  height: 22px;
+  padding: 0 8px;
+  background: linear-gradient(to bottom, #e0e0e0, #b0b0b0);
+  border: 1px solid #7a7a7a;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  min-width: 120px;
+  box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.task-button.active {
+  background: linear-gradient(to bottom, #d0d0d0, #a0a0a0);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.taskbar-tray {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+  background: #0a246a;
+  color: white;
+  font-size: 12px;
+  text-shadow: 1px 1px 1px #000;
+}
+
+/* Mobile styles */
+@media (pointer: coarse), (max-width: 820px) {
+  .taskbar {
+    height: 50px; /* Taller for mobile touch targets */
+    font-size: 14px; /* Larger text */
+    display: flex; /* Ensure it's visible */
+  }
+  
+  .start-button {
+    height: 32px; /* Larger start button */
+    padding: 0 12px;
+    font-size: 14px;
+    margin: 0 6px;
+  }
+  
+  .task-button {
+    height: 30px; /* Taller task buttons */
+    padding: 0 10px;
+    font-size: 13px;
+    min-width: 140px; /* Wider for better touch */
+  }
+  
+  .taskbar-tray {
+    font-size: 14px; /* Larger clock text */
+    padding: 0 12px;
+  }
+}

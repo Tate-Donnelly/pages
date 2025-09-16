@@ -1,0 +1,20 @@
+.status-bar {
+  height: 22px;
+  background: linear-gradient(to bottom, #e0e0e0, #d0d0d0);
+  border-top: 1px solid #a0a0a0;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+}
+.status-item {
+  margin-right: 15px;
+}
+
+/* Mobile styles */
+@media (pointer: coarse), (max-width: 820px) {
+  .status-bar {
+    height: 26px;
+    font-size: 12px;
+  }
+}

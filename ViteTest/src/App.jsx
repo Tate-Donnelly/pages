@@ -1,15 +1,12 @@
-import './App.css'
-
-function App() {
-
+import { useState } from "react";
+import Desktop from "./components/Desktop/Desktop.jsx";
+import WelcomeScreen from "./components/Desktop/WelcomeScreen.jsx";
+import "./styles/base.css";
+export default function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
-    <>
-      <div>
-        <h1>Test</h1>
-      </div>
-      <h1>Vite + React</h1>
-    </>
-  )
+    <div className="app">
+      {!loggedIn ? <WelcomeScreen onLogin={() => setLoggedIn(true)} /> : <Desktop />}
+    </div>
+  );
 }
-
-export default App
