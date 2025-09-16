@@ -1,0 +1,70 @@
+.mc-address-bar {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  background: #f0f0f0;
+  border-bottom: 1px solid #a0a0a0;
+  font-size: 12px;
+}
+.mc-address-label {
+  margin: 0 5px;
+  white-space: nowrap;
+}
+.mc-address-input {
+  flex: 1;
+  padding: 2px 5px;
+  border: 1px solid #a0a0a0;
+  background: white;
+  font-size: 12px;
+}
+.mc-main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+.mc-tasks-pane {
+  width: 180px;
+  background: linear-gradient(to bottom, #f6f6f6, #e2e2e2);
+  border-right: 1px solid #a0a0a0;
+  padding: 10px;
+  overflow: auto;
+  font-size: 12px;
+}
+.mc-tasks-section {
+  margin-bottom: 15px;
+}
+.mc-tasks-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #0a246a;
+}
+.mc-tasks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mc-task-item {
+  padding: 4px 4px 4px 20px;
+  margin: 2px 0;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+}
+.mc-task-item:hover {
+  background: linear-gradient(to bottom, #e0e8f8, #d0d8f0);
+}
+.mc-devices-pane {
+  flex: 1;
+  padding: 15px;
+  overflow: auto;
+  background: white;
+}
+.mc-folder-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #0a246a;
+  border-bottom: 1px solid #d0d0d0;
+  padding-bottom: 5px;
+}
