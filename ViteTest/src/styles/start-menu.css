@@ -3,7 +3,7 @@
     bottom: 30px;
     left: 4px;
     width: 300px;
-    background: linear-gradient(to bottom, #0a246a, #a3c6f3);
+    background: #7ca9e3;
     border: 1px solid #000;
     border-radius: 3px 3px 0 0;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
@@ -13,8 +13,8 @@
 }
 
 .start-menu-left {
-    background: linear-gradient(to right, #05207a, #a3c6f3);
-    color: white;
+    background: #a3c6f3;
+    color: #05207a;
     padding: 10px;
     font-weight: bold;
     font-size: 14px;
@@ -31,7 +31,7 @@
     padding: 5px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 3px;
-    color: white;
+    color: #05207a;
     cursor: pointer;
     font-size: 12px;
     border: none;
