@@ -35,15 +35,7 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-.icon-my-computer {
-  background-image: url("../assets/react.svg");
-}
-.icon-notepad {
-  background-color: #e7ffe7;
-}
-.icon-internet-explorer {
-  background-color: #e7f1ff;
-}
+
 .icon-label {
   text-align: center;
   font-size: 11px;
@@ -71,4 +63,36 @@
   .icon-label {
     font-size: 14px;
   }
+}
+
+/* Specific icons */
+.icon-internet-explorer {
+    background-image: url("../assets/img/icons/Internet-Explorer.webp");
+}
+
+.icon-hellfire-hair {
+    background-image: url("../assets/img/icons/HellfireHair.webp");
+}
+
+.icon-gawg {
+    background-image: url("../assets/img/icons/GiveAsWeGrow.webp");
+}
+
+.icon-gotta-go-bot {
+    background-image: url("../assets/img/icons/GottaGoBot.webp");
+}
+
+.icon-mythic-realms {
+    background-image: url("../assets/img/icons/MythicRealms.webp");
+}
+.icon-sincerely-robin {
+    background-image: url("../assets/img/icons/SincerelyRobin.webp");
+}
+
+.icon-linkedin {
+    background-image: url("../assets/img/icons/LinkedIn.png");
+}
+
+.icon-github {
+    background-image: url("../assets/img/icons/github.png");
 }

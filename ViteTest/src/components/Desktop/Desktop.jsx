@@ -53,7 +53,7 @@ export default function Desktop() {
       });
     } else if (type === "internet-explorer") {
       openWindow({
-        title: "IE - Tate Donnelly Portfolio",
+        title: "Tate Donnelly Portfolio",
         component: (props) => <InternetExplorer {...props} />,
         initialSize: { width: 800, height: 600 },
         isMobile: isMobile
@@ -65,9 +65,14 @@ export default function Desktop() {
   return (
     <div className="desktop" ref={desktopRef} onMouseDown={() => setStartMenuVisible(false)}>
       <div className="desktop-icons">
-        <DesktopIcon icon="my-computer" label="My Computer" onActivate={() => makeWindow("my-computer")} />
-        <DesktopIcon icon="notepad" label="Notepad" onActivate={() => makeWindow("notepad")} />
-        <DesktopIcon icon="internet-explorer" label="Internet Explorer" onActivate={() => makeWindow("internet-explorer")} />
+          <DesktopIcon icon="internet-explorer" label="Portfolio" onActivate={() => makeWindow("internet-explorer")} />
+          <DesktopIcon icon="linkedin" label="LinkedIn" onActivate={() => makeWindow("internet-explorer")} />
+          <DesktopIcon icon="github" label="GitHub" onActivate={() => makeWindow("internet-explorer")} />
+          <DesktopIcon icon="gawg" label="Give As We Grow" onActivate={() => makeWindow("internet-explorer")} />
+          <DesktopIcon icon="mythic-realms" label="Mythic Realms" onActivate={() => makeWindow("internet-explorer")} />
+          {/*<DesktopIcon icon="sincerely-robin" label="Sincerely, Robin" onActivate={() => makeWindow("internet-explorer")} />*/}
+          {/*<DesktopIcon icon="hellfire-hair" label="Hellfire Hair" onActivate={() => makeWindow("internet-explorer")} />*/}
+          {/*<DesktopIcon icon="gotta-go-bot" label="Gotta Go Bot" onActivate={() => makeWindow("internet-explorer")} />*/}
       </div>
       
       {windows
