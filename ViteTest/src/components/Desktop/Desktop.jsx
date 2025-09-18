@@ -64,15 +64,27 @@ export default function Desktop() {
 
   return (
     <div className="desktop" ref={desktopRef} onMouseDown={() => setStartMenuVisible(false)}>
-      <div className="desktop-icons">
+        {/*<div className="box">
+            <div className="element">One</div>
+            <div className="element">Two</div>
+            <div className="element">Three</div>
+            <div className="element">Four</div>
+            <div className="element">Five</div>
+            <div className="element">Six</div>
+            <div className="element">Seven</div>
+            <div className="element">Eight</div>
+            <div className="element">Nine</div>
+            <div className="element">Ten</div>
+        </div>*/}
+        <div className="desktop-icons">
           <DesktopIcon icon="internet-explorer" label="Portfolio" onActivate={() => makeWindow("internet-explorer")} />
           <DesktopIcon icon="linkedin" label="LinkedIn" onActivate={() => makeWindow("internet-explorer")} />
           <DesktopIcon icon="github" label="GitHub" onActivate={() => makeWindow("internet-explorer")} />
           <DesktopIcon icon="gawg" label="Give As We Grow" onActivate={() => makeWindow("internet-explorer")} />
           <DesktopIcon icon="mythic-realms" label="Mythic Realms" onActivate={() => makeWindow("internet-explorer")} />
-          {/*<DesktopIcon icon="sincerely-robin" label="Sincerely, Robin" onActivate={() => makeWindow("internet-explorer")} />*/}
-          {/*<DesktopIcon icon="hellfire-hair" label="Hellfire Hair" onActivate={() => makeWindow("internet-explorer")} />*/}
-          {/*<DesktopIcon icon="gotta-go-bot" label="Gotta Go Bot" onActivate={() => makeWindow("internet-explorer")} />*/}
+          <DesktopIcon icon="sincerely-robin" label="Sincerely, Robin" onActivate={() => makeWindow("internet-explorer")} />
+          <DesktopIcon icon="hellfire-hair" label="Hellfire Hair" onActivate={() => makeWindow("internet-explorer")} />
+          <DesktopIcon icon="gotta-go-bot" label="Gotta Go Bot" onActivate={() => makeWindow("internet-explorer")} />
       </div>
       
       {windows
